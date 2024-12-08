@@ -64,4 +64,7 @@ dependencies {
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
+    // Http connection dependencies
+    implementation(libs.retrofit)
+    implementation(libs.retrofit2.converter.gson)
 }
