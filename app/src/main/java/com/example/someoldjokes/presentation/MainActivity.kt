@@ -35,12 +35,14 @@ class MainActivity : ComponentActivity() {
 
         setTheme(android.R.style.Theme_DeviceDefault)
 
-        setContent {
-            WearApp("Android")
-        }
+        setContentView(R.layout.activity_main)
+        // setContent {
+        //    WearApp("Android")
+        // }
     }
 }
 
+/*
 @Composable
 fun WearApp(greetingName: String) {
     SomeOldJokesTheme {
@@ -71,3 +73,4 @@ fun Greeting(greetingName: String) {
 fun DefaultPreview() {
     WearApp("Preview Android")
 }
+ */
