@@ -6,7 +6,9 @@
 
 package com.example.someoldjokes.presentation
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -28,6 +30,12 @@ import com.example.someoldjokes.R
 import com.example.someoldjokes.presentation.theme.SomeOldJokesTheme
 
 class MainActivity : ComponentActivity() {
+
+    private val jokes: List<String> = listOf("O que acontece quando chove na Inglaterra?\n" + "- Vira Inglalama",
+        "O que o tomate foi fazer no banco?\n" + "- Tirar extrato",
+        "Um caipira chega a casa de um amigo que está vendo TV e pergunta:\n" + "- E aí, firme?\n" + "- Não, futebor")
+
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
 
@@ -35,10 +43,19 @@ class MainActivity : ComponentActivity() {
 
         setTheme(android.R.style.Theme_DeviceDefault)
 
+        // Set the content of the activity to the layout file
         setContentView(R.layout.activity_main)
-        // setContent {
-        //    WearApp("Android")
-        // }
+
+        // Initialize views
+        var modifiedTextView = findViewById<TextView>(R.id.jokeTextView)
+
+        // Set a click listener for the button
+        var jokeButton = findViewById<TextView>(R.id.jokeButton)
+        jokeButton.setOnClickListener {
+            // Randomly select an element from the list
+            val elementoAleatorio = jokes.random()
+            modifiedTextView.text = elementoAleatorio
+        }
     }
 }
 
